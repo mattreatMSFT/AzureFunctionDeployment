@@ -118,17 +118,17 @@
                     "connectionStrings" :[
                         {
                             "name": "TenantId",
-                            "value": "[parameters('TenantId')]",
+                            "connectionString": "[parameters('TenantId')]",
                             "type": 3
                         },
                         {
                             "name": "ClientKey",
-                            "value": "[parameters('ClientKey')]",
+                            "connectionString": "[parameters('ClientKey')]",
                             "type": 3
                         },
                         {
                             "name": "clientId",
-                            "value": "[parameters('clientId')]",
+                            "connectionString": "[parameters('clientId')]",
                             "type": 3
                         }
                     ]
