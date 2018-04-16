@@ -29,16 +29,28 @@
             "defaultValue": "master"
         },
         "PacketCaptureStorageAccount": {
-            "type": "string"
-        },
-        "clientId" : {
-            "type" : "string"
+            "type": "string",
+            "metadata": {
+                "description": "Resource Id of the storage account where packet captures will be sent"
+            }
         },
         "TenantId" : {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description" : "AAD TenantId of Service Principle"
+            }
+        },
+        "clientId" : {
+            "type" : "string",
+            "metadata": {
+                "description" : "ClientId of Service Principle"
+            }
         },
         "ClientKey" : {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Client key of Service Principle"
+            }
         }
     },
     "variables": {

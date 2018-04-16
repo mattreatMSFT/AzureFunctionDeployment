@@ -1,19 +1,19 @@
 # Deploy an Azure Function using an ARM template
 
-The NwNSGGlowLogs branch contains a working version of the deployment template, tailored for a real version of a function that transmits Azure Network Watcher NSG Flow Logs to Arcsight.  
+The AlertPacketCapture branch contains a working version of the deployment template, tailored for a real version of a function that processes Azure Monitor Alerts and triggers a subsequent packet capture on the resource that fired the alert.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FmattreatMSFT%2FAzureFunctionDeployment%2FAlertPacketCapture%2FazureDeploy.json
 )
 
 ## Overview
 
-The steps to fully implement the Azure Network Watcher NSG Flow Logs Connector are:  
+The steps to fully implement the Azure Network Watcher Alert Packet Capture Connector are:  
 * Gather the settings below.
 * Click the "Deploy to Azure" button below.
 * Authenticate to the Azure Portal (if necessary)
 * Fill in the form with the setting values
 * Wait a few minutes for the function to be created and deployed
-* In the UI of your monitoring tool (ArcSight?), query for the records that are being sent over.
+* Configure Alerts on resources and provide the URL of the the function - ~/Function1
 
 ## Settings
 
@@ -29,13 +29,11 @@ The steps to fully implement the Azure Network Watcher NSG Flow Logs Connector a
    Example: ```https://github.com/microsoft/AzureNetworkWatcherNSGFlowLogsConnector```
 * githubRepoBranch                  - this is the name of the branch containing the code you want to deploy.  
    Example: ```master```
-* nsgSourceDataConnection     - a storage account connection string  
-   Example: ```DefaultEndpointsProtocol=https;AccountName=yyy;AccountKey=xxx;EndpointSuffix=core.windows.net```
-* cefLogAccount               - a storage account connection string - account into which trace logs of incoming json and outgoing cef are dropped  
-   Example: ```DefaultEndpointsProtocol=https;AccountName=yyy;AccountKey=xxx;EndpointSuffix=core.windows.net```
-* outputBinding               - Points to the destination service - the service that will receive the NSG flow log data. There may be other output bindings in future.  
-   Example: ```arcsight```
-* arcsightAddress             - internet address of the ArcSight server / service  
-   Example: ```192.168.1.1```
-* arcsightPort                - TCP port to connect to on destination server / service  
-   Example: ```1514```
+* PacketCaptureStorageAccount    - this is the name of the storage account where packet captures will be saved
+   Example: ```/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}```
+* ClientId - this is the clientId of the Service Principle used to authenticate to Azure Resource Manager
+   Example: ```00000000-0000-0000-0000-000000000000``` 
+* clientKey - this is the client key associated with the service princple
+   Example: ```00000000-0000-0000-0000-000000000000``` 
+* TenantId - this is the Azure Active Directory TenantId 
+   Example: ```00000000-0000-0000-0000-000000000000``` 
