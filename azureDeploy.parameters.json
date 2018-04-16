@@ -11,24 +11,24 @@
         "branch": {
             "value": "yourBranch"
         },
-        "nsgSourceDataConnection": {
-            "value": "blob-account-connection-string"
-        },
-        "outputBinding": {
-            "value": "arcsight"
-        },
-        "arcsightAddress": {
-            "value": "192.168.1.1",
-            "metadata": {
-                "description": "IP address of arcsight server"
-            }
-        },
-        "arcsightPort": {
-            "value": "1514"
-        },
-        "cefLogAccount": {
+        "PacketCaptureStorageAccount": {
             "metadata": {
                 "description": "storage account into which incoming json and outgoing cef are logged"
+            }
+        },
+        "clientId" :{
+            "metadata": {
+                "description" : "ClientId of Service Principle"
+            }
+        },
+        "ClientKey" : {
+            "metadata": {
+                "description": "Client key of Service Principle"
+            }
+        },
+        "TenantId" : {
+            "metadata": {
+                "description" : "AAD TenantId of Service Principle"
             }
         }
     }
